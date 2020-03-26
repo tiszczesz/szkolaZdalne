@@ -1,0 +1,47 @@
+#ban {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: rgb(129, 129, 240);
+  padding: 10px;
+  height: 70px;
+}
+label {
+  display: inline-block;
+  text-align: right;
+  width: 120px;
+}
+.line {
+  margin: 15px;
+}
+input[type="button"] {
+  margin-left: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px black solid;
+  background-color: aquamarine;
+  width: 170px;
+}
+input {
+  width: 150px;
+}
+#content {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+#prawy {
+  width: 40%;
+}
+#lewy {
+  width: 55%;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+td,
+th {
+  padding: 10px;
+  border: solid black 1px;
+}
