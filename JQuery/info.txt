@@ -1,0 +1,2 @@
+Dwa pliki wykorzystywane przy używaniu jQuery: plik z końcówką jqueryxxxmin.js jest wykorzystywany w wersji produkcyjnej skompresownay (dla klienta)
+plik jqueryxxx.js wykorzystywany podczas programowania (plik nie skompresowany) porównać rozmiary obu
