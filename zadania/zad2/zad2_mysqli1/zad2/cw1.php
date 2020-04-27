@@ -8,7 +8,9 @@
 <body>
   <?php
   require_once("functions.php");
-  getAll();
+  //getAll();
+  insertRow(["test1",56.99,"opis testowy"]);
+  getAllByRow();
   // echo "<pre>";
   // var_dump($r);
   // echo "</pre>";

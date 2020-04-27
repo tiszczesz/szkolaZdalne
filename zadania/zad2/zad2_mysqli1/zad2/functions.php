@@ -23,3 +23,29 @@ function getAll(){
   $conn->close();
   //return $dane;  
 }
+function getAllByRow(){
+  $conn = getConnection();
+  if($conn==null) return;
+  $sql = "SELECT * FROM tab1";
+  $result = $conn->query($sql);
+  var_dump($result);
+  if($result){
+    echo "<table><tr><th>Id</th><th>Nazwa</th><th>Cena</th><th>Opis</th></tr>\n";
+    while($row = $result->fetch_row()){
+      echo "<tr>".
+      "<td>{$row[0]}</td><td>{$row[1]}</td><td>{$row[2]}</td><td>{$row[3]}</td>".
+      "</tr>";
+    }
+    echo "</table>";
+  }else{
+    echo "ERROR QUERY!!!!!";
+  }
+  $conn->close();
+}
+function insertRow(array $dane){
+  $conn = getConnection();
+  if($conn==null) return;
+  $sql = "INSERT INTO tab1(nazwa,cena,opis) VALUES('{$dane[0]}',{$dane[1]},'{$dane[2]}')";
+  $result=$conn->query($sql);
+  $conn->close();
+}
