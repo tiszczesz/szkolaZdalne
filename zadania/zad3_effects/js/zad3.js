@@ -19,7 +19,10 @@ $(function(){
         $("#kolo").fadeOut("slow");
     })
     $("#fadeTo").click(function(){
-        $("#kolo").fadeTo("slow",0.3);
+        $("#kolo").fadeTo("slow",0.2);
+    })
+    $("#fadeToggle").click(function(){
+        $("#kolo").fadeToggle("slow");
     })
 
 });
