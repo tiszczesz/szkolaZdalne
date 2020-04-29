@@ -1,0 +1,25 @@
+$(function(){
+    $("#hide").click(function(){
+        //alert("klik");
+        $("#kolo").hide(2000);
+    });
+    $("#show").click(function(){
+        //alert("klik");
+        $("#kolo").show(1000,function(){
+            $("#inny").css("color","red");
+        });
+    });
+    $("#toggle").click(function(){
+        $("#kolo").toggle("slow");
+    })
+    $("#fadeIn").click(function(){
+        $("#kolo").fadeIn("slow");
+    })
+    $("#fadeOut").click(function(){
+        $("#kolo").fadeOut("slow");
+    })
+    $("#fadeTo").click(function(){
+        $("#kolo").fadeTo("slow",0.3);
+    })
+
+});

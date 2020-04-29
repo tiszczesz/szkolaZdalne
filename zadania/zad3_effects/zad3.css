@@ -1,0 +1,23 @@
+#kolo{
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+}
+.btn{
+    width: 100px;
+    padding: 8px;
+}
+#info{
+    width:30%;
+}
+#scena{
+    width:65%;
+    border: solid 1px grey;
+}
+#wrapper{
+    display: flex;
+    flex-direction: row;;
+}
+h1{text-align: center;border-bottom: 1px black; solid;}
