@@ -28,7 +28,7 @@ function getAllByRow(){
   if($conn==null) return;
   $sql = "SELECT * FROM tab1";
   $result = $conn->query($sql);
-  var_dump($result);
+  //var_dump($result);
   if($result){
     echo "<table><tr><th>Id</th><th>Nazwa</th><th>Cena</th><th>Opis</th></tr>\n";
     while($row = $result->fetch_row()){
@@ -47,5 +47,16 @@ function insertRow(array $dane){
   if($conn==null) return;
   $sql = "INSERT INTO tab1(nazwa,cena,opis) VALUES('{$dane[0]}',{$dane[1]},'{$dane[2]}')";
   $result=$conn->query($sql);
+  $conn->close();
+}
+function insertRowNew(array $dane){
+  $conn = getConnection();
+  if($conn==null) return;
+  $sql = "INSERT INTO tab1(nazwa,cena,opis) VALUES(?,?,?)";
+  $stm = $conn->prepare($sql);
+  $result = $stm->bind_param("sds",$dane[0],$dane[1],$dane[2]);
+  $stm->execute();
+  var_dump($result,$stm);
+
   $conn->close();
 }
