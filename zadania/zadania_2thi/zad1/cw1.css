@@ -1,0 +1,13 @@
+h1{text-align: center;border-bottom: solid 2px grey;}
+#wrapper{display: flex;flex-direction: row;}
+#lewy{width: 30%;}
+#prawy{width: 68%;border: solid black 1px;
+    display: flex;flex-direction: row;}
+ #k1,#k2{
+     width: 200px;height: 200px; border: solid blue 1px;
+     margin: 20px;border-radius: 20%;
+     text-align: center;padding: 20px;
+ }
+ #k1{background-color: green;}   
+ #k2{background-color: yellow;} 
+ .btn{padding: 8px;width: 90px;}  
