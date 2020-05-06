@@ -5,7 +5,8 @@ h1{text-align: center;border-bottom: solid 1px black;}
     border-radius: 50%; 
     padding: 30px;
     text-align: center;
-    margin: 30px;   
+    margin: 30px; 
+    position: relative;   
 }
 #k1{background-color: blueviolet;}
 #k2{background-color: rgb(55, 85, 46);}
