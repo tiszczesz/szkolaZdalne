@@ -7,6 +7,7 @@ h1{text-align: center;border-bottom: solid 2px grey;}
      width: 200px;height: 200px; border: solid blue 1px;
      margin: 20px;border-radius: 20%;
      text-align: center;padding: 20px;
+     position: relative;
  }
  #k1{background-color: green;}   
  #k2{background-color: yellow;} 
