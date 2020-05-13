@@ -6,7 +6,7 @@ h1{text-align: center;border-bottom: 1px black solid;}
 #info{ width: 30%;}
 #scene{width: 68%;border: solid 1px grey; display: flex;flex-direction: row;}
 #k1,#k2{width: 120px;height: 120px; border: solid blue 2px; margin: 20px;
-       border-radius: 20%;}
+       border-radius: 20%;position: relative;}
 #k1{background-color: yellowgreen;}
 #k2{background-color: rgb(26, 41, 32);text-align: center;color:yellow;}
 .btn{padding: 8px; width: 80px;}
