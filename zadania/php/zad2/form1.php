@@ -37,7 +37,7 @@
     <?php
     require_once("functions.php");
     if(filter_has_var(INPUT_POST,"nazwa")){ //isset($_POST['nazwa'])
-      $nazwa = trim(filter_input(INPUT_POST,"nazwa"));
+      $nazwa = trim(filter_input(INPUT_POST,"nazwa",FILTER_SANITIZE_STRING));
       $cena = filter_input(INPUT_POST,"cena",FILTER_VALIDATE_FLOAT);
       $opis = trim(filter_input(INPUT_POST,"opis"));
       //var_dump($nazwa,$cena,$opis);
