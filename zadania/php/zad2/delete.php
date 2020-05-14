@@ -9,6 +9,11 @@ if(filter_has_var(INPUT_GET,'id')){
     // }else{
     //     echo "Nie można usunąć rekordu o id: {$id}<br>";
     // }
-        deleteRow($id);
+        if(deleteRow($id)){
+            echo "<div>Usunięto rekord o id: {$id}</div>";
+        }else{
+            echo "<div>Błąd przy usuwaniu rekordu o id: {$id}</div>";
+            
+        }
 }
-header("Location: cw1.php");
+//header("Location: cw1.php");

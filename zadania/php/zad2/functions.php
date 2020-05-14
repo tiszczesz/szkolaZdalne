@@ -2,7 +2,7 @@
 
 function getConnection()
 {
-  $conn = new mysqli("localhost", "root", null, "pierwsza");
+  $conn = new mysqli("localhost", "pierwsza", "pierwsza", "pierwsza");
   if ($conn->connect_errno > 0) {
     echo $conn->connect_error;
     return null;
@@ -93,4 +93,17 @@ function updateById($id,array $dane){
       ."opis='{$dane[2]}' WHERE id='{$id}'";
   $result = $conn->query($sql);
   $conn->close();
+}
+function updateLicznik(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql1 = "SELECT * FROM licznik limit 1";
+  $result1 = $conn->query($sql1);
+  $number = $result1->fetch_row();  
+  $newNumber = ++$number[0];//tutaj dałem $dane[0]++ czyli rosło o 1 dopiero po zapisaniu
+  $sql2 = "UPDATE licznik SET number={$newNumber}, LastDate=current_timestamp() ";
+  $result2 = $conn->query($sql2); 
+   $conn->close();
+  return $number;
+ 
 }

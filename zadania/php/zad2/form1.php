@@ -49,7 +49,9 @@
       } 
     }
 
+
     ?>
+    <div><a href="cw1.php">Powrót</a></div>
     </div>
 </body>
 
