@@ -31,11 +31,11 @@ class Kolo{
 }
 function move(k){
     setInterval(function(){
-        k.moveBy(3,6);
+        k.moveBy(1,2);
         let actual = k.getPosition();
         console.log(actual.x,actual.y);
         updateKolo(actual.x,actual.y);
-    },20)
+    },5)
 }
 function updateKolo(x,y){
     $("#kolo").css({left:x,bottom:y});
