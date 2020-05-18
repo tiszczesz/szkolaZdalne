@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class Film {
     constructor(id, title, price, author) {
         this.id = id;
@@ -17,18 +18,19 @@ class Film {
         $("#"+selectId).append(op);
     }
 }
-const films = [new Film(0,"ABC programowania w JS",15.99,"Zenon"),
+const films = [ new Film(34,"Najnowszy hit",120.99,"Antoni..."),
+                new Film(0,"ABC programowania w JS",15.99,"Zenon"),
                 new Film(1,"Szeregowiec R.",66.99,"Franek"),
                 new Film(2,"Kwiatki w polu",22.99,"Teresa"),
                 new Film(3,"Pusto w głowie",10.99,"Zenon"),
-                new Film(4,"Ostatni film o...",120.99,"Jerzy")
+                new Film(33,"Ostatni film o...",120.99,"Jerzy")
             ];
 
 $(function(){
     $("#select").html("<select id='sel'></select>");
     films.forEach(function(elem,i){
        // console.log(elem);
-       // console.log(i);
+        console.log(i);
         elem.filmToOption("sel");
     });
     $("#sel").change(function(){
@@ -41,4 +43,8 @@ $(function(){
         })
         $("#info").html(film.show());
     });
+    let acualId = $("#sel").val();    
+    $("#info").html(films.find(function(elem){
+        return acualId == elem.id;
+    }).show());
 })           
