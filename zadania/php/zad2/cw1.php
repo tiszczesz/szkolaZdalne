@@ -11,11 +11,24 @@
 </head>
 <body>
 <h1>Praca z Mysqli</h1>
+<?php 
+  require_once("functions.php");
+  $amount = getAmount();
+  $total = round(getTotal(),2);
+  $minPrice = getMinPrice();
+  $towar = getTowarWithMaxPrice();
+?>
+<div id="inf">
+  <div>Ilość towarów w sklepie: <?php echo $amount ?></div>
+  <div>Całkowity koszt towarów w sklepie: <?php echo $total ?> zł</div>
+  <div>Najtańszy towar w sklepie ma cenę: <?php echo $minPrice ?> zł</div>
+  <div>Najdroższy towar w sklepie : <?php echo $towar[1] ."w cenie: ".$towar[2]  ?> zł</div>
+</div>
 <div>
 <a href="form1.php">Wstaw dane</a>
 </div >
   <?php
-  require_once("functions.php");
+    
   //getAll();
   //insertRow(["test1",56.99,"opis testowy"]);
   getAllByRow();

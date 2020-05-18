@@ -107,3 +107,40 @@ function updateLicznik(){
   return $number;
  
 }
+function getAmount(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "select count(*) from tab1";
+  $result = $conn->query($sql);
+  $amount = $result->fetch_row()[0];  
+  $conn->close();
+  return intval($amount);
+}
+function getTotal(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "select sum(cena) from tab1";
+  $result = $conn->query($sql);
+  $total = $result->fetch_row()[0];  
+  $conn->close();
+  return floatval($total);
+}
+function getMinPrice(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "select min(cena) from tab1";
+  $result = $conn->query($sql);
+  $minPrice = $result->fetch_row()[0];  
+  $conn->close();
+  return floatval($minPrice);
+}
+function getTowarWithMaxPrice(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "select * from tab1 order by cena desc limit 1";
+  $result = $conn->query($sql);
+  $towar = $result->fetch_row();  
+  $conn->close();
+  return $towar;
+}
+
