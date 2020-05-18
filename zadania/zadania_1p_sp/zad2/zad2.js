@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $(function () {
     $("#select").html("<select id='sel'></select>");
     towary.forEach(function(elem){
@@ -7,8 +8,15 @@ $(function () {
     $("#sel").change(function(){
         console.log($(this).val());
         console.log($("#sel :selected").text());
-        $("#info").html(towary[$(this).val()].show());
+        let id = $(this).val();
+        let towar = towary.find(function(elem){
+            return id == elem.id;
+        })
+        console.log(towar);
+        $("#info").html(towar.show());
     });
+
+    $("#info").html(towary[$("#sel").val()].show());
 });
 
 class Towar {
@@ -32,6 +40,6 @@ class Towar {
 const towary = [new Towar(0, "kiełbasa", 23.67),
     new Towar(1, "bułka mała", 0.99,"Wypieczona bułka mała"),
     new Towar(2, "cukierki ...", 12.88,"Słodkie landrynki"),
-    new Towar(3, "cukier", 12.67,"cukier kryształ biały"),
+    new Towar(33, "cukier", 12.67,"cukier kryształ biały"),
     new Towar(4, "szczotka do włosów", 34.99,"Wygodna szczotka dla każdych włosów"),
-    new Towar(5, "mąka tortowa", 6.67,"idealna mąka do pieczenia"),];
+    new Towar(12, "mąka tortowa", 6.67,"idealna mąka do pieczenia"),];
