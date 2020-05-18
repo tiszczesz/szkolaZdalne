@@ -12,6 +12,9 @@ $(function(){
         let id = $(this).val();
         $("#info").html(books[id].show());
     });
+    //po załadowaniu strony pobiera zaznaczoną książkę
+    let id = $("#sel").val();
+    $("#info").html(books[id].show());
 });
 
 
