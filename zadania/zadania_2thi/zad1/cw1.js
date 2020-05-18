@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-undef
 $(function () {
     // alert("hello");
     // $("#hide").click(function () {
@@ -39,7 +41,7 @@ $(function () {
     // $("#animate").click(function () {
     //     $("#k2").animate({ opacity: 0.5, left: 200,height:"-5" }, 2000);
     // });
-    $("input[type=button]").each(function(i){
+    $("input[type=button]").each(function(){
         let value = $(this).val();
        // console.log(value);
         switch(value){
@@ -53,7 +55,9 @@ $(function () {
             case "slideUp": $(this).click(function(){$("#k1").slideUp(2000)});break;
             case "slideDown": $(this).click(function(){$("#k1").slideDown(2000)});break;
             case "slideToggle": $(this).click(function(){$("#k1").slideToggle(2000)});break;
-            case "animate":$(this).click(function(){$("#k1").animate({ opacity: 0.5, left: 600,height:30 }, 2000)});break;
+            case "animate":$(this).click(function(){$("#k1")
+                      .animate({ opacity: 0.5, left: 600,height:30 }, 2000)});break;
+            case "stop" : $(this).click(function(){$("#k1").stop()}); break;
             default: console.log("error");        
         }
     })
