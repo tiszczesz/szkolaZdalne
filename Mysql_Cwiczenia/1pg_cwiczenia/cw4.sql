@@ -82,3 +82,4 @@ select * from rodzaje;
 insert into filmy(tytul,cena,rodzajId)
 values("kwakwa",34.99,1);
 select * from filmy;
+show create table filmy;
