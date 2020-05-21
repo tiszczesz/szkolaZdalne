@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Maj 2020, 12:58
+-- Czas generowania: 21 Maj 2020, 12:55
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.5
 
@@ -29,6 +29,7 @@ USE `pierwsza`;
 -- Struktura tabeli dla tabeli `licznik`
 --
 
+DROP TABLE IF EXISTS `licznik`;
 CREATE TABLE `licznik` (
   `number` int(11) NOT NULL,
   `LastDate` timestamp NOT NULL DEFAULT current_timestamp()
@@ -39,7 +40,7 @@ CREATE TABLE `licznik` (
 --
 
 INSERT INTO `licznik` (`number`, `LastDate`) VALUES
-(20, '2020-05-14 10:55:21');
+(49, '2020-05-21 10:18:49');
 
 -- --------------------------------------------------------
 
@@ -47,6 +48,7 @@ INSERT INTO `licznik` (`number`, `LastDate`) VALUES
 -- Struktura tabeli dla tabeli `tab1`
 --
 
+DROP TABLE IF EXISTS `tab1`;
 CREATE TABLE `tab1` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL,
@@ -60,10 +62,23 @@ CREATE TABLE `tab1` (
 
 INSERT INTO `tab1` (`id`, `nazwa`, `cena`, `opis`) VALUES
 (1, 'Buraki123', '34.89', 'Buraki czerwone'),
-(2, 'Ziemniaki', '12.78', 'Ziemniaki myte'),
+(2, 'Ziemniaki', '1.99', 'Ziemniaki myte'),
 (3, 'Cebula', '5.99', 'Zwykła cebula'),
-(4, 'Marchew', '2.99', 'Marchewka polska'),
-(9, 'www4wwww', '45.90', 'wwww');
+(4, 'Marchew', '2.99', 'Marchewka polska');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zamówienia`
+--
+
+DROP TABLE IF EXISTS `zamówienia`;
+CREATE TABLE `zamówienia` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `towarId` int(11) NOT NULL,
+  `ilosc` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Indeksy dla zrzutów tabel
@@ -76,6 +91,12 @@ ALTER TABLE `tab1`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `zamówienia`
+--
+ALTER TABLE `zamówienia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -84,6 +105,12 @@ ALTER TABLE `tab1`
 --
 ALTER TABLE `tab1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT dla tabeli `zamówienia`
+--
+ALTER TABLE `zamówienia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
