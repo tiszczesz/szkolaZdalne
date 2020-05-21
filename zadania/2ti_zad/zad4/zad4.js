@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 $(function(){
-    let o = new Obiekt(0,0,"kolo");
+    let o = new Obiekt(0,0,"kolo",vx,vy);
     console.log(o);
     moveKolo(o);
 });

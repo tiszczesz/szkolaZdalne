@@ -1,0 +1,6 @@
+h1{text-align: center;font-weight: bold;}
+#content{display: flex;flex-direction: row;}
+table{border-collapse: collapse;width: 80%;}
+td,th{border: solid 1px brown;padding: 6px;}
+th{background-color: lightsalmon;}
+#tab{width: 60%;}
