@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class Game {
     constructor(id, titile, price, description) {
         this.id = id;
@@ -17,8 +18,9 @@ class Game {
 }
 const games = [new Game(0, 'wiedźmin 3', 45.00, "gra rpg"),
                 new Game(1, 'GTA IV', 66.00, "gra inna"),
-                new Game(2, 'Diablo 4', 145.00, "gra rpg"),
-                new Game(3, 'Jakaś gra', 66.00, "gggg gggggg")];
+                new Game(45, 'Diablo 4', 145.00, "gra rpg"),
+                new Game(3, 'Jakaś gra', 66.00, "gggg gggggg"),
+                new Game(34, 'Coś nowego', 50.00, "bbbb") ];
 $(function () {
     $("#select").html("<select id='sel'></select>");
     games.forEach(function(elem){
@@ -29,6 +31,12 @@ $(function () {
         console.log($(this).val());
         //console.log($(this).text());
         console.log($("#sel :selected").text());
-        $("#info").html(games[$(this).val()].show());
+        let id = $(this).val();
+        let game = games.find(function(elem){
+            return id == elem.id;
+        });
+        $("#info").html(game.show());
     });
+
+    //todo
 });
