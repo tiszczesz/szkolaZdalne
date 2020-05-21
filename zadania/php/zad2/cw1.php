@@ -39,11 +39,14 @@
   // wyświetlić dane w tabelce HTML używając fetch_row()
   ?>
 
-
+<div>
+      <a href="open.php">Przeglądanie towarów</a>
+</div>
 <div id="footer">
   <?php $dane = updateLicznik();
   echo "Liczba odwiedzin: ".($dane[0]+1)." data: ".$dane[1];
   ?>
   </div>
+  
 </body>
 </html>

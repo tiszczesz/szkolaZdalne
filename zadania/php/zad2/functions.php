@@ -1,5 +1,5 @@
 <?php
-
+require_once ("Towar.php");
 function getConnection()
 {
   $conn = new mysqli("localhost", "pierwsza", "pierwsza", "pierwsza");
@@ -142,5 +142,18 @@ function getTowarWithMaxPrice(){
   $towar = $result->fetch_row();  
   $conn->close();
   return $towar;
+}
+function getAllTowars(){
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "SELECT * FROM tab1";
+  $towary = [];
+  if($result = $conn->query($sql)){
+    while($row = $result->fetch_assoc()){
+      $towary[] = new Towar($row['id'],$row['nazwa'],$row['cena'],$row['opis']);
+    }
+  }
+  $conn->close();
+  return $towary;
 }
 
