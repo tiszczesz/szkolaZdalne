@@ -30,7 +30,7 @@ class Towar {
         //alert("Towar: " + this.nazwa);
         return `Opis towaru<br>Nazwa: <span class='nazwa'>${this.nazwa}</span>
                cena: <span class='cena'>${this.cena}</span> zł<br>
-               opis: <span class='opis'>${this.op}</span>`;
+               opis: <span class='opis'>${this.opis}</span>`;
     }
     addToSelectById(id){
         let op = new Option(this.nazwa+" cena: "+this.cena+" zł",this.id);
