@@ -9,7 +9,7 @@ $(function(){
     $('.btnAdd').each(function(i,elem){
         console.log(elem);
        // elem.onclick= <-- tu było onClick :)
-        $(elem).click(function(){ //aby z
+        $(elem).click(function(){ //aby zrobic obiekt jQuery $()
             console.log('dddd');
             alert($(this).val()+" towar o id: "+$(this).attr("id"));
         });
