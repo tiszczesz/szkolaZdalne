@@ -1,0 +1,13 @@
+h1{text-align: center;}
+#content{
+    display: flex;
+    flex-direction: row;
+}
+#list{
+    width: 60%;
+}
+table{border-collapse: collapse;width: 90%;}
+th,td{padding: 8px;border: 1px solid lime;}
+th{background-color: darkcyan;}
+input.btnAdd{padding: 6px;}
+td.price{text-align: right;}
