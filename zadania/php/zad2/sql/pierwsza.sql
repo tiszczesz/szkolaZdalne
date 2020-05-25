@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 21 Maj 2020, 12:55
+-- Czas generowania: 25 Maj 2020, 10:43
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.4.5
 
@@ -29,7 +29,6 @@ USE `pierwsza`;
 -- Struktura tabeli dla tabeli `licznik`
 --
 
-DROP TABLE IF EXISTS `licznik`;
 CREATE TABLE `licznik` (
   `number` int(11) NOT NULL,
   `LastDate` timestamp NOT NULL DEFAULT current_timestamp()
@@ -40,7 +39,7 @@ CREATE TABLE `licznik` (
 --
 
 INSERT INTO `licznik` (`number`, `LastDate`) VALUES
-(49, '2020-05-21 10:18:49');
+(50, '2020-05-25 07:50:36');
 
 -- --------------------------------------------------------
 
@@ -48,7 +47,6 @@ INSERT INTO `licznik` (`number`, `LastDate`) VALUES
 -- Struktura tabeli dla tabeli `tab1`
 --
 
-DROP TABLE IF EXISTS `tab1`;
 CREATE TABLE `tab1` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL,
@@ -72,13 +70,19 @@ INSERT INTO `tab1` (`id`, `nazwa`, `cena`, `opis`) VALUES
 -- Struktura tabeli dla tabeli `zamówienia`
 --
 
-DROP TABLE IF EXISTS `zamówienia`;
 CREATE TABLE `zamówienia` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(50) COLLATE utf8_polish_ci NOT NULL,
   `towarId` int(11) NOT NULL,
   `ilosc` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `zamówienia`
+--
+
+INSERT INTO `zamówienia` (`id`, `nazwa`, `towarId`, `ilosc`) VALUES
+(1, 'zam1', 1, 2);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -94,7 +98,8 @@ ALTER TABLE `tab1`
 -- Indeksy dla tabeli `zamówienia`
 --
 ALTER TABLE `zamówienia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_towar_zam` (`towarId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -110,7 +115,17 @@ ALTER TABLE `tab1`
 -- AUTO_INCREMENT dla tabeli `zamówienia`
 --
 ALTER TABLE `zamówienia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Ograniczenia dla zrzutów tabel
+--
+
+--
+-- Ograniczenia dla tabeli `zamówienia`
+--
+ALTER TABLE `zamówienia`
+  ADD CONSTRAINT `fk_towar_zam` FOREIGN KEY (`towarId`) REFERENCES `tab1` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

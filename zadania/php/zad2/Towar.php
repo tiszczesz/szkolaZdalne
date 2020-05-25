@@ -16,7 +16,7 @@ class Towar
     {
         return <<<TEXT
 <form action='' method='POST'>
-<input type='hidden' value='{$this->id}'>
+<input type='hidden' value='{$this->id}' name='id'>
 <div id="line">
     
     <span>{$this->name}</span>

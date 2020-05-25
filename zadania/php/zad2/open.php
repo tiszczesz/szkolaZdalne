@@ -10,13 +10,27 @@
 
 <body>
     <h1>Przeglądanie towarów</h1>
-    <?php
-    require_once "functions.php";
-    $towary = getAllTowars();
-    foreach($towary as $t){
-        echo $t->getFormToAdd();
-    }
-    ?>
+    <div id='content'>
+        <div id="list">
+            <?php
+            require_once "functions.php";
+            $towary = getAllTowars();
+            foreach ($towary as $t) {
+                echo $t->getFormToAdd();
+            }
+            ?>
+        </div>
+        <div id="card">
+            <?php
+            var_dump($_POST);
+            if(filter_has_var(INPUT_POST,'id')){
+                $id = filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);
+                addToOrder($id);
+            }
+            ?>
+        </div>
+    </div>
+
 </body>
 
 </html>

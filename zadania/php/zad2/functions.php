@@ -156,4 +156,24 @@ function getAllTowars(){
   $conn->close();
   return $towary;
 }
+function addToOrder($id){
+  var_dump($id);
+  $nazwa = 'zam1';
+  $conn = getConnection();
+  if($conn==null) return null;
+  $sql = "SELECT count(towarId) FROM `zamówienia` where towarId={$id}";
+  $result = $conn->query($sql);
+  $numRows = $result->fetch_row()[0];
+  if($numRows>0){
+    $sqlGet = "SELECT ilosc FROM `zamówienia` where towarId={$id}";
+    $resultGet = $conn->query($sqlGet);
+    $quantity = $resultGet->fetch_row()[0];
+    $quantity++;
+    $conn->query("UPDATE `zamówienia` SET ilosc={$quantity} where towarId={$id}");
+  }else{
+    $sql2 = "INSERT INTO `zamówienia`(nazwa,towarId,ilosc) values('{$nazwa}',{$id},1)";
+    $result2 = $conn->query($sql2);
+  }
+  $conn->close();
+}
 
