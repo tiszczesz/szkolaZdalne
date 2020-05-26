@@ -83,3 +83,42 @@ insert into filmy(tytul,cena,rodzajId)
 values("kwakwa",34.99,1);
 select * from filmy;
 show create table filmy;
+---------------------
+show create table rodzaje;
+describe rodzaje;
+select * from rodzaje;
+
+insert into filmy values(null,"nowy fajny film",55.90,3);
+delete from rodzaje where id=3;
+delete from rodzaje where id=4;
+
+alter table filmy
+drop CONSTRAINT FK_rodzaj_film;
+insert into rodzaje values(null,"obyczajowy");
+
+update filmy set rodzajId=5 where rodzajId=3;
+
+alter table filmy
+add CONSTRAINT FK_rodzaj_film
+FOREIGN KEY(rodzajId) REFERENCES rodzaje(id)
+on delete cascade;
+
+insert into filmy values(null,"ale film",45.90,5);
+insert into filmy values(null,"abc",45.90,1);
+insert into filmy values(null,"rtyu",45.90,1);
+insert into filmy values(null,"12345",45.90,5);
+
+delete from rodzaje where id=5;
+
+alter table filmy
+drop CONSTRAINT FK_rodzaj_film;
+
+alter table filmy
+add CONSTRAINT FK_rodzaj_film
+FOREIGN KEY(rodzajId) REFERENCES rodzaje(id)
+on delete set null;
+
+select * from filmy;
+select * from rodzaje;
+
+delete from rodzaje where id=1;
