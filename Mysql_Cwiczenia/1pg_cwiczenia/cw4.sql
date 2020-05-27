@@ -65,7 +65,7 @@ insert into filmy(tytul,cena,rodzajId)
 values("kwakwa",34.99,null);
 select * from filmy;
 drop table filmy;
-
+--tworze ....
 create table filmy(
     id int primary key auto_increment,
     tytul varchar(50) not null,
