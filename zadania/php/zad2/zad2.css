@@ -4,3 +4,6 @@ border-radius: 10px;box-shadow: 5px 5px 5px grey;}
 #content{
     display: flex; flex-direction: row;
 }
+#list{
+    width: 60%;
+}

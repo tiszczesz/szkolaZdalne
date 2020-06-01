@@ -176,4 +176,24 @@ function addToOrder($id){
   }
   $conn->close();
 }
+function deleteAllInCard(){
+  $conn = getConnection();
+  if($conn==null) return false;
+  $result = $conn->query("DELETE FROM `zamówienia`");
+  $conn->close();
+  return $result; 
+}
+function showAllOrders(){
+  $conn = getConnection();
+  if($conn==null) return false;
+  $sql = "SELECT * FROM view_zam";
+  //echo $sql;
+  $result = $conn->query($sql);
+  echo "<ul>";
+  while($row = $result->fetch_array()){
+    echo "<li>{$row[0]} w ilości: {$row[2]} za cenę: "
+    .$row[1] * $row[2]    ." zł</li>";
+  }
+  echo "</ul>";
+}
 

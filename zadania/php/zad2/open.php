@@ -18,15 +18,24 @@
             foreach ($towary as $t) {
                 echo $t->getFormToAdd();
             }
+            echo "<div><a href='delAllinCard.php'>Wyczyść koszyk</a></div>"
             ?>
         </div>
         <div id="card">
             <?php
             var_dump($_POST);
-            if(filter_has_var(INPUT_POST,'id')){
-                $id = filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);
-                addToOrder($id);
+            $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL'])
+                && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+
+            if ($pageWasRefreshed) {
+                //do something because page was refreshed;
+            } else {
+                if (filter_has_var(INPUT_POST, 'id')) {
+                    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+                    addToOrder($id);
+                }
             }
+            showAllOrders();
             ?>
         </div>
     </div>
