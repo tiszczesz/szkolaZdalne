@@ -10,3 +10,6 @@ th{background-color: cornflowerblue;}
 #tab1 tr:hover{
     background-color: lightseagreen;
 }
+ul.list-card{
+    list-style-image: url("book18.png");
+}

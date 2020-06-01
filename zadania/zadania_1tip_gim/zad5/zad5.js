@@ -78,7 +78,7 @@ class Card{
         this.items.forEach((item)=>{
             html += `<li>${item.book.title} cena: ${item.book.price} zł ilość: ${item.quantity}</li>`
         });
-        $("#card").append($("<ul>").append(html));
+        $("#card").append($("<ul class='list-card'>").append(html));
         $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal().toFixed(2)+'</span>');
        // $("#"+idList).append(`<li>${book.title} ${book.price} zł</li>`);
        // $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal()+'</span>')
