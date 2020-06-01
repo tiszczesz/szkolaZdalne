@@ -17,6 +17,7 @@ $(function(){
        });
       // elem.onclick = function(){....}
     });
+    $("#list").slideDown(600);
 });
 
 
@@ -51,21 +52,49 @@ class Card{
     addToCard(id){
         let book = books.find((elem)=>{return elem.id==id});
         //console.log(book);
-        this.items.push(book);
-        this.addLine('lista',book);
+        let index = this.bookInCard(id);
+        console.log(index);
+        if(index!=-1){
+            //zwiększali ilość
+            this.items[index].AddOne(1);
+        }else{
+            this.items.push(new CardLine(book,1));
+            
+        }
+        this.updateCard();
         console.log(this.items);
-        console.log(this.getTotal());
+       // console.log(this.getTotal());
     }
     getTotal(){
         let total = 0;
         this.items.forEach(function(elem){
-            total+=elem.price;
+            total+=(elem.book.price*elem.quantity);
         })
         return total;
     }
-    addLine(idList,book){
-        $("#"+idList).append(`<li>${book.title} ${book.price} zł</li>`);
-        $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal()+'</span>')
+    updateCard(){
+        $("#card").html("");
+        let html = "";
+        this.items.forEach((item)=>{
+            html += `<li>${item.book.title} cena: ${item.book.price} zł ilość: ${item.quantity}</li>`
+        });
+        $("#card").append($("<ul>").append(html));
+        $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal().toFixed(2)+'</span>');
+       // $("#"+idList).append(`<li>${book.title} ${book.price} zł</li>`);
+       // $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal()+'</span>')
+    }
+    bookInCard(id){
+        let index = this.items.findIndex((item)=>{return item.book.id==id});
+        return index;
+    }
+}
+class CardLine{
+    constructor(book,quantity){
+        this.book = book;
+        this.quantity = quantity;
+    }
+    AddOne(quantity){
+        this.quantity+=quantity;
     }
 }
 let card = new Card();
