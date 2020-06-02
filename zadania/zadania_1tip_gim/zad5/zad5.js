@@ -6,7 +6,7 @@ $(function(){
     books.forEach(function(elem,i){
        // console.log(elem,i);
         elem.addToTable('tab1',i);
-    })
+    });
     
     //console.log($(".btnAdd"));
     $(".btnAdd").each(function(i,elem){
