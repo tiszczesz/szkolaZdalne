@@ -66,11 +66,19 @@ class Card{
     updateList(){
         $("#orders").html("");
         let html = "";
-        this.items.forEach((elem)=>{
-            html += `<li>${elem[0].title} cena: ${elem[0].price} zł ilość: ${elem[1]}</li>`;
+        this.items.forEach((elem,index)=>{
+            html += `<li>${elem[0].title} cena: ${elem[0].price} zł ilość: ${elem[1]}
+            <button class='btnDelete' value=${index}><img src='minus.png'></button></li>`;
         })
         $('#orders').append($("<ul>")
         .append((html)));
+        
+        $("#total").html("<hr>Całkowity koszt koszyka: "+this.getTotal().toFixed(2)+" zł");
+        $(".btnDelete").each((i,elem)=>{
+            $(elem).click((event)=>{
+                this.removeFromCard($(event.currentTarget).val());
+            });
+        });
     }
     isInItems(id){       
         for(let i=0;i<this.items.length;i++){
@@ -79,6 +87,18 @@ class Card{
             }
         }
         return false;
+    }
+    getTotal(){
+        let total = 0;
+        this.items.forEach((elem)=>{
+            console.log(elem[0]);
+            total+=(elem[0].price*elem[1]);
+        });
+        return total;
+    }
+    removeFromCard(id){
+        this.items.splice(id,1);
+        this.updateList();
     }
 }
 let card = new Card();
