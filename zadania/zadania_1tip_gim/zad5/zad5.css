@@ -1,6 +1,6 @@
 h1{text-align: center;margin-bottom: 30px;}
 #list{width: 500px;display: none;}
-#left{position: fixed;right: 0;top: 30px;width: 350px;background-color: lightgreen;
+#left{position: fixed;right: 0;top: 30px;width: 450px;background-color: lightgreen;
     padding: 5px;}
 table{width: 90%;border-collapse: collapse;margin: 10px;}
 td,th{border: solid 1px rgb(13, 58, 56);padding: 6px;}
@@ -13,3 +13,5 @@ th{background-color: cornflowerblue;}
 ul.list-card{
     list-style-image: url("book18.png");
 }
+#total{margin-left: 20px;font-size: 1.3em;color: darkgreen;}
+.price-total{font-weight: bold;}

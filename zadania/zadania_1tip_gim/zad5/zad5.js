@@ -53,7 +53,7 @@ class Card{
         let book = books.find((elem)=>{return elem.id==id});
         //console.log(book);
         let index = this.bookInCard(id);
-        console.log(index);
+      //  console.log(index);
         if(index!=-1){
             //zwiększali ilość
             this.items[index].AddOne(1);
@@ -62,7 +62,7 @@ class Card{
             
         }
         this.updateCard();
-        console.log(this.items);
+       // console.log(this.items);
        // console.log(this.getTotal());
     }
     getTotal(){
@@ -75,17 +75,32 @@ class Card{
     updateCard(){
         $("#card").html("");
         let html = "";
-        this.items.forEach((item)=>{
-            html += `<li>${item.book.title} cena: ${item.book.price} zł ilość: ${item.quantity}</li>`
+        this.items.forEach((item,index)=>{
+            html += `<li>${item.book.title} cena: ${item.book.price} zł ilość: ${item.quantity}
+            <button class='btn-remove' value="${index}"><img src='minus.png'></button></li>`
         });
         $("#card").append($("<ul class='list-card'>").append(html));
-        $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal().toFixed(2)+'</span>');
+        $("#total").html('Cena za towary w koszyku: <span class="price-total">'+this.getTotal().toFixed(2)+' zł</span>');
        // $("#"+idList).append(`<li>${book.title} ${book.price} zł</li>`);
        // $("#total").html('Cena za towary w koszyku: <span class="total">'+this.getTotal()+'</span>')
+     //  console.log($('.btn-remove'));
+       $('.btn-remove').each((i,elem)=>{//funkcja strzalkowa powoduje że "this" jest odwołaniem do obiektu card a nie button
+        console.log("nnnnn",$(elem));   //albo rezygnujemy z zapisu ()=>{} albo do buttona
+                                        // odwołujemy się przez event.currentTarge
+
+        $(elem).click((event)=>{
+            console.log(event.currentTarget.value);
+            console.log($(event.currentTarget).val());
+        });
+       });
     }
     bookInCard(id){
         let index = this.items.findIndex((item)=>{return item.book.id==id});
         return index;
+    }
+    removeFromCard(id){
+        this.items.splice(id,1);
+        this.updateCard();
     }
 }
 class CardLine{
