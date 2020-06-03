@@ -187,13 +187,17 @@ function showAllOrders(){
   $conn = getConnection();
   if($conn==null) return false;
   $sql = "SELECT * FROM view_zam";
+  $total = 0;
   //echo $sql;
   $result = $conn->query($sql);
   echo "<ul>";
   while($row = $result->fetch_array()){
-    echo "<li>{$row[0]} w ilości: {$row[2]} za cenę: "
-    .$row[1] * $row[2]    ." zł</li>";
+    $total += ($row[1]*$row[2]);
+    echo "<form method='post'><li>{$row[0]} w ilości: {$row[2]} za cenę: "
+    .$row[1] * $row[2]    ." zł</li><input name='hideId' type='hidden' value='{$row[3]}'><input type='submit' value='usuń'></form>";
   }
   echo "</ul>";
+  echo "<hr>";
+  echo "<div>Całkowita cena koszyka {$total} zł</div>";
 }
 

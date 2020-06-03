@@ -23,12 +23,14 @@
         </div>
         <div id="card">
             <?php
-            var_dump($_POST);
+           // var_dump($_POST);
+           // var_dump($_SERVER);
             $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL'])
                 && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 
             if ($pageWasRefreshed) {
                 //do something because page was refreshed;
+                echo "Tak nie można robić F5!!!";
             } else {
                 if (filter_has_var(INPUT_POST, 'id')) {
                     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
@@ -36,6 +38,10 @@
                 }
             }
             showAllOrders();
+            if(filter_has_var(INPUT_POST,"hideId")){
+                $id = filter_input(INPUT_POST,"hided",FILTER_VALIDATE_INT);
+                //deleteFromZam($id);
+            }
             ?>
         </div>
     </div>
