@@ -89,8 +89,10 @@ class Card{
                                         // odwołujemy się przez event.currentTarge
 
         $(elem).click((event)=>{
-            console.log(event.currentTarget.value);
+          //  console.log(event);
             console.log($(event.currentTarget).val());
+            this.removeFromCard($(event.currentTarget).val());
+           // this.removeFromCard(event.currentTarget.value);
         });
        });
     }
