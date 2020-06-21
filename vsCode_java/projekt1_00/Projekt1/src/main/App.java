@@ -1,6 +1,7 @@
 package main;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,7 +17,10 @@ public class App {
     public static void main(String[] args) throws Exception {
         try{
              readFromFile();
-        }catch(IOException ex){
+        }catch(FileNotFoundException ex){
+            System.out.println(ex.getMessage());
+        }
+        catch(IOException ex){
             System.out.println(ex.getMessage());
         }
        
@@ -43,17 +47,14 @@ public class App {
 
     }
     public static void readFromFile() throws IOException {
-        String line;
-        BufferedReader in;
+        String line = null;
+        BufferedReader in = new BufferedReader(new FileReader("dane.txt"));
+       
 
-        in = new BufferedReader(new FileReader("dane.txt"));
-        line = in.readLine();
-
-        while (line != null) {
-            System.out.println(line);
-            line = in.readLine();
+        while ((line = in.readLine()) != null) {
+            System.out.println(line);           
         }
 
-        System.out.println(line);
+       in.close();
     }
 }
